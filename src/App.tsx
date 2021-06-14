@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
+import loadModules, { AppCore } from "./plugins/loadModules";
+
+const modulesList = {
+  UserJsonExport: "JsonExport",
+};
+
+loadModules(modulesList);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navigation />
+
+      <main className="app-main">
+        <header className="app-header">
+          <div className="header-left">left</div>
+
+          <div className="header-right">right</div>
+        </header>
+
+        <section className="app-content">main content</section>
+
+        <Footer />
+      </main>
     </div>
   );
 }
